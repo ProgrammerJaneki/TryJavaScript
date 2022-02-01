@@ -207,23 +207,43 @@ console.log(prefixedUserName /*+ prefixedUserName2 */);
 // let msg = 20n + 10;
 
 // MODULE 3
-console.log(2*3+1); 
-console.log(2**4);
-console.log(5/1);
-console.log(8**2-5**2);
-
-console.log(4 * 5 == 20);
-console.log(6*5 == "30");
-console.log(-17 != 0);
-console.log(25 > 1);
-console.log(2+2*2 > 4);
-
-console.log(true != false);  
-console.log(false == false);
-console.log(false || false || true);
-console.log(true || false && false && true);
 // ternary
 let samp = 4 > 2 ? "Janeki" : "Bob";
 console.log(samp);
+// Ternary =  condition ? expressionIfTrue : experssionIfFalse
 
-window.alert("Hello");
+
+// 5.1.1.3 FUNCTIONS
+console.log("==========================");
+
+function getMeanTemp(temperatures) {
+    let sum = 0;
+    for (let i=0; i<temperatures.length; i++) {
+        sum += temperatures[i];
+    }
+    return sum / temperatures.length;
+};
+let day1 = [12, 12, 11, 11, 10, 9, 9, 10, 12, 13, 15, 18, 21, 24, 24, 23, 25, 25, 23, 21, 20, 19, 17, 16];
+console.log(`Mean: ${getMeanTemp(day1)}`);
+
+let day2 = [17, 16, 14, 12, 10, 10, 10, 11, 13, 14, 15, 17, 22, 27, 29, 29, 27, 26, 24, 21, 19, 18, 17, 16];
+console.log(`mean: ${getMeanTemp(day2)}`);
+
+function add(first, second) {
+    return first + second;
+}
+console.log(add(2,4));
+
+// Sample Parameters Validation
+function getRealMT(temp) {
+    if (!(temp instanceof Array)) {
+        return NaN;
+    }
+    let sum = 0;
+    for (let i=0; i<temp.length; i++) {
+        sum += temp[i];
+    }
+    return sum/temp.length;
+}
+console.log(getRealMT(10));
+console.log(getRealMT([14,17,20,13]));
