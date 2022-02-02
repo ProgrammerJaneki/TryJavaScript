@@ -336,3 +336,63 @@ console.log(action(thisAdd, 12, 10.1));
 console.log(action(thisMult, 5, 10));
 
 // Sample Timer
+/*
+let timerCount = 1;
+let setTimerId = setInterval(function() {
+    console.log(timerCount++);
+}, 1000);
+setTimeout(function(){
+    clearInterval(setTimerId);
+}, 5000);
+*/
+let fibbRec = function(n) {
+    let returnVal = 0;
+    if (n != 0) {
+        if (n == 1) {
+            returnVal = 1;
+        } else {
+            returnVal = fibbRec(n- 1) + fibbRec(n - 2);
+        }
+    }
+    return returnVal;
+}
+console.log(fibbRec(4));
+// Shorter Version using Arrow Function
+let shortFibb = m => m == 0 ? 0 : (m==1 ? 1 : shortFibb(m-1) + shortFibb(m-2));
+console.log(shortFibb(6));
+
+// 5.2.1.14 LAB: FUNCTIONS 
+// showContact, showAllContacts, addNewContact
+let showContact = function (listContacts, index) {
+    // Will check if the argument passed is an Array
+    if (listContacts instanceof Array && contacts[index]) {
+        console.log(`Name: ${contacts[index].name} / Phone: ${contacts[index].phone} / Email: ${contacts[index].email}`);
+    }    
+}
+let showAllContact = function (listAllContacts, index) {
+    // Will check if the argument passed is an Array
+    if (listAllContacts instanceof Array) {
+        console.log("List of Contacts: ");
+        for (let i=0; i<contacts.length; i++) {
+            console.log(`Name: ${contacts[i].name} / Phone: ${contacts[i].phone} / Email: ${contacts[i].email}`);
+        }
+    }
+}
+let addNewContact = function (contacts, addName, addPhone, addEmail) {
+    if (contacts instanceof Array) {
+        // We will add new contacts on the last index
+        contacts.push(
+            {
+                name: addName,
+                phone: addPhone,
+                email: addEmail
+            }
+        );
+    }
+}
+showContact(contacts, 3);
+addNewContact(contacts,"Janeki","0909","Janeki@gmail.com");
+showAllContact(contacts);
+
+// Module 6 
+
