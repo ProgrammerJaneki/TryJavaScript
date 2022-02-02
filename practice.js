@@ -247,3 +247,92 @@ function getRealMT(temp) {
 }
 console.log(getRealMT(10));
 console.log(getRealMT([14,17,20,13]));
+
+function factorial (n) {
+    let result = 1;
+    while (n > 1) {
+        result *= n;  // result = result * n
+        n--;
+        // console.log(n);
+    }
+    return result;  
+}
+console.log(factorial(6)); // -> 6 * 5 * 4 * 3 * 2 * 1 = 720
+// Example of Recursion
+let cnt = 1;
+function secFacttorial (n) {
+    return n > 1 ? n * secFacttorial(n - 1) : 1; // It only return anything on the last recursion
+}
+console.log(`Result: ${secFacttorial(6)}`);
+function countDownRecursion(n) {
+    console.log(n);
+    return n > 1 ? countDownRecursion(n-1) : console.log("hooray");
+}
+countDownRecursion(5);
+
+function showMessage(message) {
+    console.log(`Message: ${message}`);
+}
+let sm = showMessage("Hello");
+
+// Asynchronous Callbacks - The order of the declaration doesn't matter
+let inner = function() {
+console.log('Show this ');
+}
+// This is a important example of Asyncronous Callback
+let outer = function(myCallBack) {
+    console.log('outer 1');
+    console.log('outer 2');
+
+    /* Call back is a function passed as an argument to a function  */
+    let timerId = setInterval(myCallBack, 1000) /*ms*/;
+    setTimeout(function(){
+        clearInterval(timerId);
+    }, 3500);
+}
+console.log('test 1');
+// outer(inner);
+console.log('test 2');
+
+let secAdd = (a, b) => a + b; // It will return the sum of a and b
+console.log(secAdd(10, 20));
+
+let listNames = ["Alice", "James", "Carl"]; function showNames(element) {
+    console.log(element);
+}
+listNames.forEach(showNames); // forEach function will be called each time for the element of the array
+showNames(listNames);
+
+// Example of Arrow Function
+let numbers = [50, 10, 40, 30, 20];
+let sorted =  numbers.sort((a, b) => a-b);
+let thisSort = (a,b) => a-b;
+console.log(numbers.sort());
+/*
+function compareNumbers(a, b) {
+    let retVal = 0;
+    if (a < b) {
+        retVal = -1;
+    } else if(a > b) {
+        retVal = 1;
+    }
+    return retVal;
+}
+let sorted = numbers.sort(compareNumbers);
+*/
+console.log(sorted.reverse());
+let thisSample = x => x == 2 ? "Correct" : "Wrong";
+console.log(thisSample(1));
+// Functions that will check whether the number is integer or not
+let thisAdd = (a,b) => !Number.isInteger(a) || !Number.isInteger(b) ? NaN : a+b;
+let thisSub = (a,b) => !Number.isInteger(a) || !Number.isInteger(b) ? NaN : a-b;
+let thisMult = (a,b) => !Number.isInteger(a) || !Number.isInteger(b) ? NaN : a*b;
+console.log(thisAdd(2.5, 2.5));
+console.log(thisSub(15, 5));
+console.log(thisMult(2, 4));
+
+let action = (thisCallBack, a, b) => thisCallBack(a,b);
+console.log(action(thisAdd, 12, 10.1));
+console.log(action(thisMult, 5, 10));
+
+// Sample Timer
